@@ -1,183 +1,525 @@
-//Question1
-let greeting: string = "Hello, World!";
-console.log(greeting);
-//Question2
-let num1:number=4;
-let num2: number=2;
-let sum:number=num1+num2;
-let diff:number=num1-num2;
-let product:number=num1*num2;
-let quotient:number=num1/num2;
-let remainder:number=num1%num2;
+import prompt from "prompt-sync";
+const userInput=prompt();
+//question1
+console.log("Hello, World!");
 
-console.log("Sum:", sum);
-console.log("Difference:", diff);
-console.log("Product:", product);
-console.log("Quotient:", quotient);
-console.log("Remainder:", remainder);
 
+//question2
+let temperature: number = 15; 
+
+if (temperature < 20) {
+    console.log("It's cold!"); // Logging "It's cold!" if the temperature is below 20 degrees Celsius
+
+
+}
 //question3
-let a:number = 1,
-  b:number = 2;
+let apples: number = 10; // Number of apples initially
+let given: number = 3; // Number of apples given away
 
-a = a + b; // Sum of a and b is assigned to a
-b = a - b; // Difference of a(sum) and original b is assigned to b
-a = a - b; // Difference of a(sum of original a and b) and new b(original a) is assigned to a
+let remaining: number = apples - given; // Calculate the remaining apples
 
-console.log("a:", a); // Output: 2
-console.log("b:", b); // Output: 1 values swapped
+console.log("Remaining apples:", remaining); // Log the result
+
+
 
 //question4
-let message: string;
+let firstName: string = "Miraal"; // First name
+let lastName: string = "Sajid"; // Last name
 
-// Attempting to assign a number to a variable typed as string
-//message = 123;
- // Error: Type 'number' is not assignable to type 'string'
+let fullName: string = firstName + " " + lastName; // Combining first name and last name
 
-//console.log(message);
+console.log("Full Name:", fullName); // Logging the result
+
 
 //question5
-let num3:number=6,num4:number=5;
-let remainder2:number=num3%num4;
-console.log("Remainder:", remainder2);
+if (5 > 3) {
+    console.log("Yes"); // Log "Yes" if the condition is true
+} else {
+    console.log("No"); // Log "No" if the condition is false
+}
+
 
 //question6
-let counter: number=0;
-console.log("Original value of counter: ",counter);
-//one way of increment
-counter++;
-console.log("output after 1st increment",counter);
-counter+=1; //another way of increment
-console.log("output after second increment: ",counter);
+function calculateArea(radius: number): number {
+    const area: number = Math.PI * radius * radius; // Calculate the area using the formula πr^2
+    return area; // Return the calculated area
+}
 
 //question7
-let x: boolean = true,
-  y: boolean = false,
-  z: boolean = true;
+for (let i = 1; i <= 50; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+        console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+        console.log("Fizz");
+    } else if (i % 5 === 0) {
+        console.log("Buzz");
+    } else {
+        console.log(i);
+    }
+}
 
-// AND Gate
-let andResult: boolean = x && y; // true only if both x and y are true
-
-// OR Gate
-let orResult: boolean = y || z; // true if at least one of y or z is true
-
-// NOT Gate
-let notResultA: boolean = !x; // Inverts the value of x
-let notResultC: boolean = !z; // Inverts the value of z
 
 //question8
-let num: number = 10;
+let temperatures: number[] = [18, 22, 25, 20, 23]; // Array of temperatures
 
-// Using compound assignment operators
-num += 5; // Equivalent to: num = num + 5;
-console.log("After +=:", num); // Output: 15
+let highestTemperature: number = temperatures[0]; // Assume the first temperature is the highest
 
-num -= 3; // Equivalent to: num = num - 3;
-console.log("After -=:", num); // Output: 12
+for (let i = 1; i < temperatures.length; i++) {
+    if (temperatures[i] > highestTemperature) {
+        highestTemperature = temperatures[i]; // Update highestTemperature if a higher temperature is found
+    }
+}
 
-num *= 2; // Equivalent to: num = num * 2;
-console.log("After *=:", num); // Output: 24
-
-num /= 4; // Equivalent to: num = num / 4;
-console.log("After /=:", num); // Output: 6
+console.log("The highest temperature is:", highestTemperature);
 
 //question9
+let ageInput: string = userInput("Please enter your age:"); // Prompt user for age input
 
-let numb: number = 12; // You can assign any number to 'num'
+if (ageInput) {
+    let age: number = parseInt(ageInput, 10); // Using base 10 (decimal) for parsing
 
-// Check if 'num' is even or odd
-if (numb % 2 === 0) //remainder is zero
- {
-    console.log(numb + " is even.");
+    if (!isNaN(age)) {
+        // Check if the parsed age is a valid number
+        if (age < 18) {
+            console.log("You are a minor.");
+        } else {
+            console.log("You are an adult.");
+        }
+    } else {
+        console.log("Invalid input! Please enter a valid age.");
+    }
 } else {
-    console.log(numb + " is odd.");
+    console.log("Invalid input! Please enter your age.");
 }
 
 //question10
-let age: number = 20; // You can assign any age to 'age'
-
-// Check if 'age' is 18 or older to determine voting eligibility
-if (age >= 18) {
-    console.log("You are eligible to vote.");
-} else {
-    console.log("You are not eligible to vote yet.");
+function countPositiveNumbers(numbers: number[]): number {
+    let count: number = 0;
+    
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] > 0) {
+            count++;
+        }
+    }
+    
+    return count;
 }
+
+// Example usage:
+let exampleArray: number[] = [1, -2, 3, 4, -5, 6];
+let positiveCount: number = countPositiveNumbers(exampleArray);
+console.log("Count of positive numbers:", positiveCount); // Output: 4
 
 //question11
-let score: number = 85; // You can assign any numerical score to 'score'
 
-// Use conditionals to assign and print grades
-if (score >= 90) {
-    console.log("Grade: A");
-} else if (score >= 80) {
-    console.log("Grade: B");
-} else if (score >= 70) {
-    console.log("Grade: C");
-} else if (score >= 60) {
-    console.log("Grade: D");
-} else {
-    console.log("Grade: F");
+function wordsStartingWithA(words: string[]): string[] {
+    // Initialize an empty array to store words that start with 'a'
+    let result: string[] = [];
+    // Iterate over each word in the input array
+    for (let word of words) {
+        // Check if the word starts with 'a' or 'A'
+        if (word.toLowerCase().startsWith('a')) {
+            // If it does, add it to the result array
+            result.push(word);
+        }
+    }
+    // Return the result array
+    return result;
 }
+let words = ["apple", "banana", "avocado", "grape", "Apricot", "blueberry"];
+let filteredWords = wordsStartingWithA(words);
+console.log(filteredWords);  
 
 //question12
-let p: number = 10,
-    q: number = 20,
-    r: number = 15;
 
-let max: number;
+let fruits: string[] = ["apple", "banana", "cherry", "date", "elderberry"];
 
-// Determine the largest among p , q and r
-if (p >= q && p >= r) {
-    max = p;
-} else if (q >= p && q >= r) {
-    max = q;
-} else {
-    max = r;
+function getSecondToLastElement(arr: string[]): string | undefined {
+    // Check if the array has at least two elements
+    if (arr.length < 2) {
+        console.log("The array does not have enough elements.");
+        return undefined;
+    }
+    // Return the second to last element
+    return arr[arr.length - 2];
 }
-
-console.log("The maximum of", p + ",", q + ", and", r + " is:", max);
+// Get the second to last element from the fruits array
+let secondToLastFruit = getSecondToLastElement(fruits);
+if (secondToLastFruit !== undefined) {
+    console.log("The second to last fruit is:", secondToLastFruit);
+} else {
+    console.log("The array does not contain enough elements to determine the second to last element.");
+}
 
 //question13
-let year: number = 2024; // You can assign any year to 'year'
-
-// Determine if 'year' is a leap year
-if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
-    console.log(year + " is a leap year.");
-} else {
-    console.log(year + " is not a leap year.");
+function squareNumbers(numbers: number[]): number[] {
+    // Initialize an empty array to store the squared numbers
+    let squaredNumbers: number[] = [];
+  
+    for (let i = 0; i < numbers.length; i++) {
+        // Square the number and add it to the new array
+        squaredNumbers.push(numbers[i] * numbers[i]);
+    }
+    // Return the new array with squared numbers
+    return squaredNumbers;
 }
+let numbers = [1, 2, 3, 4, 5];
+let squaredNumbers = squareNumbers(numbers);
+console.log(squaredNumbers);  
 
 //question14
-
-let fahrenheit: number = 68; // You can assign any Fahrenheit temperature to 'fahrenheit'
-
-// Convert Fahrenheit to Celsius
-let celsius: number = (fahrenheit - 32) * 5 / 9;
-
-console.log(fahrenheit + " degrees Fahrenheit is equal to " + celsius.toFixed(2) + " degrees Celsius.");
+function ReverseNumbers(numbers: number[]): number[] {
+    // Initialize an empty array to store the reversed numbers
+    let reversedNumbers: number[] = [];
+  
+    for (let i = numbers.length-1; i >=0; i--) {
+        
+        reversedNumbers.push(numbers[i]);
+    }
+    // Return the new array with squared numbers
+    return reversedNumbers;
+}
+let numbers2 = [1, 2, 3, 4, 7];
+let reversedNumbers = ReverseNumbers(numbers2);
+console.log(reversedNumbers); 
 
 //question15
+function ScoreExtremes(scores: number[]): void {
+    // Initialize variables to track the maximum and minimum scores
+    let maxScore = scores[0];
+    let minScore = scores[0];
+    // Initialize counters for exceeding max and falling below min
+    let exceedMaxCount = 0;
+    let belowMinCount = 0;
 
-let number: number = -10; // You can assign any number to 'number'
+    for (let i = 1; i < scores.length; i++) {
+        if (scores[i] > maxScore) {
+            maxScore = scores[i];
+            exceedMaxCount++;
+        } else if (scores[i] < minScore) {
+            minScore = scores[i];
+            belowMinCount++;
+        }
+    }
 
-// Determine the sign of 'number'
-if (number > 0) {
-    console.log("The number is positive.");
-} else if (number < 0) {
-    console.log("The number is negative.");
-} else {
-    console.log("The number is zero.");
+    console.log(`Number of times the score exceeded the maximum score: ${exceedMaxCount}`);
+    console.log(`Number of times the score fell below the minimum score: ${belowMinCount}`);
 }
+
+let scores = [10, 5, 20, 20, 4, 5, 2, 25, 1];
+ScoreExtremes(scores);
 
 //question16
+function removeFalseyValues(arr: any[]): any[] {
+    // Initialize an empty array to store truthy values
+    let truthyValues: any[] = [];
+    // Iterate over each element in the input array
+    for (let value=0;value<arr.length;value++) {
+        // Check if the value is truthy
+        if (arr[value]) {
+            truthyValues.push(arr[value]);
+        }
+    }
+    // Return the array containing only truthy values
+    return truthyValues;
+}
+let values = [0, 1, false, 2, '', 3, 'a', NaN, 'b', null, 'c', undefined];
+let filteredValues = removeFalseyValues(values);
+console.log(filteredValues); 
 
-let number1: number = 5; // You can assign any number to 'number'
+//question17
+let array1: number[] = [1, 2, 3];
+let array2: number[] = [4, 5, 6];
 
-// Print the multiplication table for 'number' up to 10
-console.log("Multiplication table for", number1 + ":");
+let concatenatedArray: number[] = [];
 
-for (let i = 1; i <= 10; i++) {
-    console.log(number1 + " × " + i + " = " + (number1 * i));
+// Loop through the first array and add each element to the concatenated array
+for (let i = 0; i < array1.length; i++) {
+    concatenatedArray.push(array1[i]);
 }
 
+// Loop through the second array and add each element to the concatenated array
+for (let i = 0; i < array2.length; i++) {
+    concatenatedArray.push(array2[i]);
+}
+console.log(concatenatedArray); 
 
+//question18
+
+function sumOfElements(arr: number[], even: boolean): number {
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        const element = arr[i];
+        if (even && element % 2 === 0) {
+            sum += element;
+        } else if (!even && element % 2 !== 0) {
+            sum += element;
+        }
+    }
+
+    return sum;
+}
+const arrayyy: number[] = [1, 2, 3, 4, 5, 6];
+console.log(sumOfElements(arrayyy, true));  // Output: 12 (2 + 4 + 6)
+console.log(sumOfElements(arrayyy, false)); // Output: 9 (1 + 3 + 5)
+
+//question19
+
+function findElementIndex(arr: any[], element: any): number {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === element) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+const arrayy1: number[] = [1, 2, 3, 4, 5, 6];
+console.log(findElementIndex(arrayy1, 3));  // Output: 2
+console.log(findElementIndex(arrayy1, 7));  // Output: -1
+
+//question20
+function findSmallestNumber(arr: number[]): number {
+    if (arr.length === 0) {
+        throw new Error("Array is empty");
+    }
+
+    let smallest = arr[0];
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < smallest) {
+            smallest = arr[i];
+        }
+    }
+
+    return smallest;
+}
+
+const arrayy: number[] = [3, 5, 1, 8, -2, 7];
+console.log(findSmallestNumber(arrayy));
+
+//question21
+function calculateProduct(arr: number[]): number {
+    let product = 1;
+    for (let i = 0; i < arr.length; i++) {
+        product *= arr[i];
+    }
+    return product;
+}
+console.log(calculateProduct([1, 2, 3, 4])); 
+
+//question22
+function filterByLength(arr: string[], n: number): string[] {
+    const result: string[] = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].length > n) {
+            result.push(arr[i]);
+        }
+    }
+    return result;
+}
+console.log(filterByLength(["apple", "banana", "cherry", "date"], 5)); 
+
+//question23
+
+
+function findDuplicates(arr: any[]): void {
+    const seen: any[] = []; 
+    const duplicates: any[] = []; 
+    for (let i = 0; i < arr.length; i++) { 
+        if (seen.includes(arr[i])) { 
+            if (!duplicates.includes(arr[i])) { 
+                duplicates.push(arr[i]);
+            }
+        } else { 
+            seen.push(arr[i]); 
+        }
+    }
+
+    console.log(duplicates);
+
+findDuplicates([1, 2, 3, 1, 4, 2, 5]); 
+}
+
+//question24
+function incrementAll(arr: number[]): number[] {
+    const result: number[] = [];
+    for (let i = 0; i < arr.length; i++) {
+        result.push(arr[i] + 1);
+    }
+    return result;
+}
+
+console.log(incrementAll([1, 2, 3]));
+
+//question25
+function countOccurrences(arr: any[], element: any): number {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === element) {
+            count++;
+        }
+    }
+    return count;
+}
+console.log(countOccurrences([1, 2, 3, 2, 4, 2], 2)); 
+
+//question26
+function isSorted(arr: number[]): boolean {
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log(isSorted([1, 2, 3, 4])); 
+console.log(isSorted([1, 3, 2, 4])); 
+
+//question27
+function formatNames(names: string[]): string {
+    if (names.length === 0) return '';
+    if (names.length === 1) return names[0];
+    if (names.length === 2) return names[0] + ' and ' + names[1];
+
+    let result = '';
+    for (let i = 0; i < names.length - 1; i++) {
+        if (i < names.length - 2) {
+            result += names[i] + ', ';
+        } else {
+            result += names[i] + ' and ' + names[i + 1];
+        }
+    }
+    return result;
+}
+console.log(formatNames(["Maryam", "Ahmed", "Ayesha"])); 
+
+//question28
+function fahrenheitToCelsius(fahrenheit: number): number {
+    return (fahrenheit - 32) * 5 / 9;
+}
+
+function convertTemperatures(temps: number[]): void {
+    const celsiusTemps: number[] = [];
+    for (let i = 0; i < temps.length; i++) {
+        celsiusTemps.push(fahrenheitToCelsius(temps[i]));
+    }
+    console.log(celsiusTemps);
+}
+
+convertTemperatures([32, 68, 100]); 
+
+//question29
+function minMaxAverage(arr: number[]): { min: number, max: number, average: number } {
+    let min = arr[0];
+    let max = arr[0];
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+        sum += arr[i];
+    }
+
+    return { min, max, average: sum / arr.length };
+}
+
+console.log(minMaxAverage([1, 2, 3, 4, 5])); 
+
+//question30
+function swapElements(arr: any[], index1: number, index2: number): void {
+    const temp = arr[index1];
+    arr[index1] = arr[index2];
+    arr[index2] = temp;
+}
+
+// Example usage:
+const arrayyy1 = [1, 2, 3, 4];
+swapElements(arrayyy1, 1, 3);
+console.log(arrayyy1); 
+
+//question31
+function countCharacterOccurrences(str: string, char: string): number {
+    let count = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === char) {
+            count++;
+        }
+    }
+    return count;
+}
+
+console.log(countCharacterOccurrences("hello world", "o")); 
+
+//question32
+type Task = { task: string, completed: boolean };
+
+function logUncompletedTasks(tasks: Task[]): void {
+    for (let i = 0; i < tasks.length; i++) {
+        if (!tasks[i].completed) {
+            console.log(tasks[i].task);
+        }
+    }
+}
+const tasks: Task[] = [
+    { task: "Do laundry", completed: false },
+    { task: "Clean room", completed: true },
+    { task: "Buy groceries", completed: false }
+];
+logUncompletedTasks(tasks);
+
+//question33
+function sortArray(arr: number[]): number[] {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] > arr[j]) {
+                const temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
+}
+
+console.log(sortArray([5, 3, 8, 1, 2])); // Output: [1, 2, 3, 5, 8]
+
+
+
+//question34
+function logArrayInReverse(arr: any[]): void {
+    for (let i = arr.length - 1; i >= 0; i--) {
+        console.log(arr[i]);
+    }
+}
+logArrayInReverse([1, 2, 3, 4, 5]); 
+
+
+
+//question35
+
+function basicCalculator(operand1: number, operand2: number, operator: string): number | null {
+    switch (operator) {
+        case '+':
+            return operand1 + operand2;
+        case '-':
+            return operand1 - operand2;
+        case '*':
+            return operand1 * operand2;
+        case '/':
+            return operand2 !== 0 ? operand1 / operand2 : null;
+        default:
+            return null;
+    }
+}
+console.log(basicCalculator(10, 5, '+')); // Output: 15
+console.log(basicCalculator(10, 5, '-')); // Output: 5
+console.log(basicCalculator(10, 5, '*')); // Output: 50
+console.log(basicCalculator(10, 5, '/')); // Output: 2
+console.log(basicCalculator(10, 0, '/')); // Output: null (cannot divide by zero)
